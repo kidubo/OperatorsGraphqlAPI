@@ -1,0 +1,75 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Operator {
+  id: String!
+  phoneNumber: Int!
+  name: String!
+  website: String!
+  email: String!
+  address: String!
+  description: String!
+  category: Category!
+  categoryId: String!
+}
+
+type Category {
+  id: String!
+  Buses: String
+  Ferries: String
+  Flights: String
+  Trains: String
+  operator: [Operator!]
+}
+
+type Query {
+  getAlloperators: [Operator!]!
+  GetOperatorById(id: String!): Operator!
+  GetAllCategory: [Category!]!
+  GetCategoryById(id: String!): Category!
+}
+
+type Mutation {
+  createOperator(createOperatorInput: CreateOperatorInput!): Operator!
+  updateOperator(updateOperatorInput: UpdateOperatorInput!): Operator!
+  removeOperator(id: String!): Operator!
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+}
+
+input CreateOperatorInput {
+  phoneNumber: Int!
+  name: String!
+  website: String!
+  email: String!
+  address: String!
+  description: String!
+  categoryId: String!
+}
+
+input UpdateOperatorInput {
+  phoneNumber: Int
+  name: String
+  website: String
+  email: String
+  address: String
+  description: String
+  categoryId: String
+  id: String!
+}
+
+input CreateCategoryInput {
+  Buses: String
+  Ferries: String
+  Flights: String
+  Trains: String
+}
+
+input UpdateCategoryInput {
+  Buses: String
+  Ferries: String
+  Flights: String
+  Trains: String
+  id: Int!
+}
